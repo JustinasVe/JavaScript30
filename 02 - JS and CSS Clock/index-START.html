@@ -65,8 +65,7 @@
       top: 50%;
       transform-origin: 100%;
       transform: rotate(90deg);
-      /* transition: all 0.05s;
-      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1); */
+      transition: all 0.05s cubic-bezier(0.1, 2.7, 0.58, 1);
     }
 
   </style>
@@ -82,6 +81,12 @@
       const seconds = now.getSeconds();
       const secondsToDegrees = ((seconds / 60) * 360) + 90; 
       secondHand.style.transform = `rotate(${secondsToDegrees}deg)`;
+
+      if (seconds === 0) {
+        secondHand.style.transition = 'none';
+      } else {
+        secondHand.style.transition = 'transform 0.05s cubic-bezier(0.1, 2.7, 0.58, 1)';
+      }
       
       const minutes = now.getMinutes(); 
       const minutesToDegrees = ((minutes / 60) * 360) + 90;
