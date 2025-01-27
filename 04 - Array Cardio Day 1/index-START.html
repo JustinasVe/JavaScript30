@@ -86,6 +86,13 @@
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
 
+    const countInstances = data.reduce((acc, item) => {
+      acc[item] = (acc[item] || 0) + 1; // E.g. (undefined || 0) -> 0 if acc[item] is falsy return 0 and increase by 1
+      return acc;
+    }, {});
+
+    console.log(countInstances);
+
   </script>
 </body>
 </html>
