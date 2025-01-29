@@ -54,6 +54,19 @@
     const sortedByBirthDate = [...inventors].sort((a, b) => a.year - b.year);
     console.log(sortedByBirthDate);
 
+    //another solution
+    // //A
+    // const ordered = inventors.sort(function(a, b) {
+    //   if(a.year > b.year) {
+    //     return 1;
+    //   } else {
+    //     return -1;
+    //   }
+    // });
+
+    // //B
+    // const ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
+
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
 
