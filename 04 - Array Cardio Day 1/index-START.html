@@ -98,8 +98,17 @@
     // 7. sort Exercise
     // Sort the people alphabetically by last name
 
+    //wrong data array
     const sortedByLastName = [...inventors].sort((a, b) => a.last.localeCompare(b.last));
     console.log(sortedByLastName);
+
+    //correct data array to work with 
+    const alpha = people.sort((lastOne, nextOne) => {
+      const [aLast, aFirst] = lastOne.split(', ');
+      const [bLast, bFirst] = nextOne.split(', ');
+      return aLast > bLast ? 1 : -1;
+    })
+    console.log(alpha)
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
