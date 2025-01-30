@@ -39,7 +39,7 @@
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
 
-    const inventorsSince1500 = inventors.filter((inventor) => inventor.year > 1500);
+    const inventorsSince1500 = inventors.filter((inventor) => inventor.year >= 1500 && inventor.year <= 1599);
     console.log(inventorsSince1500);
 
     // Array.prototype.map()
@@ -53,6 +53,19 @@
 
     const sortedByBirthDate = [...inventors].sort((a, b) => a.year - b.year);
     console.log(sortedByBirthDate);
+
+    //another solution
+    // //A
+    // const ordered = inventors.sort(function(a, b) {
+    //   if(a.year > b.year) {
+    //     return 1;
+    //   } else {
+    //     return -1;
+    //   }
+    // });
+
+    // //B
+    // const ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
@@ -85,8 +98,17 @@
     // 7. sort Exercise
     // Sort the people alphabetically by last name
 
+    //wrong data array
     const sortedByLastName = [...inventors].sort((a, b) => a.last.localeCompare(b.last));
     console.log(sortedByLastName);
+
+    //correct data array to work with 
+    const alpha = people.sort((lastOne, nextOne) => {
+      const [aLast, aFirst] = lastOne.split(', ');
+      const [bLast, bFirst] = nextOne.split(', ');
+      return aLast > bLast ? 1 : -1;
+    })
+    console.log(alpha)
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
