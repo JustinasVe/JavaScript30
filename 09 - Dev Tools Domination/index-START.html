@@ -19,28 +19,76 @@
     }
 
     // Regular
+    console.log('hello');
 
     // Interpolated
+    //1 way
+    console.log('This message is for %s purpose', 'testing');
+    //2 way 
+    const strVariable = 'testing';
+    console.log(`This message is for ${strVariable} purpose`);
 
     // Styled
+    console.log('%c I am some great text', 'font-size: 50px; background: red; text-shadow: 10px 10px 0 blue');
 
     // warning!
+    console.warn('Password is really weak');
 
     // Error :|
+    console.error('Username already exist');
 
     // Info
+    console.info('A cloud weighs around a million tonnes');
 
     // Testing
+    const paragraph = document.querySelector('p');
+
+    console.assert(paragraph.classList.contains('fact'), 'This is false');
 
     // clearing
+    // console.clear();
 
     // Viewing DOM Elements
+    console.log(paragraph);
+    console.dir(paragraph);
+
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+
+      console.groupEnd(`${dog.name}`);
+    })
 
     // counting
 
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+
     // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+
+    console.table(dogs);
 
   </script>
 </body>
